@@ -1,28 +1,28 @@
 # Chess Heatmap 
 
-Chess Heatmap is a web application that visualizes your chess activity across Chess.com and Lichess. It generates a GitHub-style contribution graph based on your game history, allowing you to see your daily frequency and consistency over the year.
+Chess Heatmap visualizes your activity across Chess.com and Lichess in a single, unified view. It generates a year-long contribution graph that highlights your consistency and daily volume across both platforms.
+
+![Chess Heatmap Home](img1.png)
+![Hikaru Heatmap Example](img2.png)
 
 The live application is available at: [https://chessheat.royceps.com](https://chessheat.royceps.com)
 
 ## Features
 
-- Fetches game data from Chess.com and Lichess APIs
-- Combines data from both platforms into a single heatmap
-- Displays daily game counts and statistics
-- Shows win/loss/draw breakdowns and game formats (bullet, blitz, rapid)
-- Supports dark and light modes
-- Shareable user profiles
+- **Unified Heatmap**: Merge game history from Chess.com and Lichess.
+- **Detailed Statistics**: View daily game counts, win/loss rates, and streak data.
+- **Platform Support**: Works with any public Chess.com or Lichess username.
+- **Shareable Profiles**: Generate links to share your year in chess.
+- **Mobile Friendly**: Fully responsive layout for phone and desktop.
 
 ## Tech Stack
 
 - Next.js 14
 - TypeScript
 - Tailwind CSS
-- Recharts (for graphs)
+- Recharts
 
-## Local Setup
-
-To run this project locally:
+## Running Locally
 
 1. Clone the repository:
    ```bash
@@ -40,16 +40,16 @@ To run this project locally:
    npm run dev
    ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
-
 ## License
 
 This project is licensed under the MIT License with the Commons Clause.
-You are free to use, modify, and self-host this software for personal or non-commercial purposes.
-You may not sell this software as a service or rebrand it for commercial gain.
+
+You are free to use, modify, and self-host this code for personal use.
+You may not sell this software as a service or rebrand it as your own product.
+
 See the `LICENSE` file for full details.
 
 ## Attribution
 
 Created by [Royce](https://royceps.com).
-If you use this code, please keep the attribution in the footer.
+If you use this code, please ensure the attribution link remains in the footer.
