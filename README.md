@@ -1,4 +1,4 @@
-# Chess Heatmap
+# Chess Heatmap 
 
 Chess Heatmap is a web application that visualizes your chess activity across Chess.com and Lichess. It generates a GitHub-style contribution graph based on your game history, allowing you to see your daily frequency and consistency over the year.
 
