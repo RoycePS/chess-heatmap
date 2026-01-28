@@ -6,10 +6,10 @@ export interface PlatformProfile {
     platform: "chesscom" | "lichess";
     url: string;
     avatar?: string;
-    title?: string;  
-    country?: string;  
-    joinedDate?: number;  
-    lastOnline?: number;  
+    title?: string;
+    country?: string;
+    joinedDate?: number;
+    lastOnline?: number;
     followers?: number;
     isStreamer?: boolean;
 }
@@ -18,7 +18,7 @@ export interface PlatformRatings {
     bullet?: { rating: number; rd?: number; prog?: number; peak?: number };
     blitz?: { rating: number; rd?: number; prog?: number; peak?: number };
     rapid?: { rating: number; rd?: number; prog?: number; peak?: number };
-    classical?: { rating: number; rd?: number; prog?: number; peak?: number };  
+    classical?: { rating: number; rd?: number; prog?: number; peak?: number };
     puzzle?: { rating: number };
 }
 
@@ -42,8 +42,8 @@ const LichessProfileSchema = z.object({
     url: z.string(),
     title: z.string().optional(),
     online: z.boolean().optional(),
-    createdAt: z.number().optional(),  
-    seenAt: z.number().optional(),  
+    createdAt: z.number().optional(),
+    seenAt: z.number().optional(),
     profile: z.object({
         country: z.string().optional(),
         location: z.string().optional(),
@@ -68,7 +68,7 @@ const LichessProfileSchema = z.object({
 
 export async function fetchLichessProfileData(username: string): Promise<{ profile: PlatformProfile; ratings: PlatformRatings; error?: string } | { error: string } | null> {
     try {
-        const res = await fetch(`https: 
+        const res = await fetch(`https://lichess.org/api/user/${username}`, {
             headers: { Accept: "application/json" },
             next: { revalidate: 300 },
         });
@@ -116,10 +116,10 @@ const ChessComProfileSchema = z.object({
     username: z.string(),
     url: z.string(),
     avatar: z.string().optional(),
-    title: z.string().optional(),  
-    country: z.string().optional(),  
-    joined: z.number().optional(),  
-    last_online: z.number().optional(),  
+    title: z.string().optional(),
+    country: z.string().optional(),
+    joined: z.number().optional(),
+    last_online: z.number().optional(),
     followers: z.number().optional(),
     is_streamer: z.boolean().optional(),
     status: z.string().optional(),
@@ -129,18 +129,18 @@ const ChessComStatsSchema = z.object({
     chess_bullet: z.object({ last: z.object({ rating: z.number() }), best: z.object({ rating: z.number() }).optional() }).optional(),
     chess_blitz: z.object({ last: z.object({ rating: z.number() }), best: z.object({ rating: z.number() }).optional() }).optional(),
     chess_rapid: z.object({ last: z.object({ rating: z.number() }), best: z.object({ rating: z.number() }).optional() }).optional(),
-    chess_daily: z.object({ last: z.object({ rating: z.number() }), best: z.object({ rating: z.number() }).optional() }).optional(),  
-    tactics: z.object({ highest: z.object({ rating: z.number() }).optional(), lowest: z.object({ rating: z.number() }).optional() }).optional(),  
+    chess_daily: z.object({ last: z.object({ rating: z.number() }), best: z.object({ rating: z.number() }).optional() }).optional(),
+    tactics: z.object({ highest: z.object({ rating: z.number() }).optional(), lowest: z.object({ rating: z.number() }).optional() }).optional(),
 }).passthrough();
 
 export async function fetchChessComProfileData(username: string): Promise<{ profile: PlatformProfile; ratings: PlatformRatings; error?: string } | { error: string } | null> {
     try {
         const [profileRes, statsRes] = await Promise.all([
-            fetch(`https: 
+            fetch(`https://api.chess.com/pub/player/${username}`, {
                 headers: { "User-Agent": "ChessHeatmap/1.0" },
                 next: { revalidate: 3600 },
             }),
-            fetch(`https: 
+            fetch(`https://api.chess.com/pub/player/${username}/stats`, {
                 headers: { "User-Agent": "ChessHeatmap/1.0" },
                 next: { revalidate: 300 },
             })

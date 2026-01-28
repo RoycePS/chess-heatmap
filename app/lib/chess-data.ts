@@ -93,7 +93,7 @@ export async function fetchLichessData(username: string, year: string): Promise<
             until: until.toString()
         });
 
-        const res = await fetch(`https: 
+        const res = await fetch(`https://lichess.org/api/games/user/${username}?${params.toString()}`, {
             headers: { Accept: "application/x-ndjson" },
             next: { revalidate: 3600 },
         });
@@ -185,7 +185,7 @@ export async function fetchChessComData(username: string, year: string): Promise
     const lowerUsername = username.toLowerCase();
 
     try {
-        const archivesRes = await fetch(`https: 
+        const archivesRes = await fetch(`https://api.chess.com/pub/player/${username}/games/archives`, {
             headers: { "User-Agent": "ChessHeatmap/1.0" },
             next: { revalidate: 3600 },
         });
@@ -322,7 +322,7 @@ export async function getChessData(
         }
 
         const dVal = new Date(date).getTime();
-        if (prevDateVal && dVal - prevDateVal <= 93600000) {  
+        if (prevDateVal && dVal - prevDateVal <= 93600000) {
             tempCurrentStreak++;
         } else {
             tempCurrentStreak = 1;
