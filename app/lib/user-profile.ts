@@ -9,9 +9,9 @@ export interface UserProfile {
 
 export async function fetchChessComProfile(username: string): Promise<UserProfile | null> {
     try {
-        const res = await fetch(`https: 
+        const res = await fetch(`https://api.chess.com/pub/player/${username}`, {
             headers: { 'User-Agent': 'ChessHeatmap/1.0' },
-            next: { revalidate: 86400 },  
+            next: { revalidate: 86400 },
         });
 
         if (!res.ok) {
@@ -40,9 +40,9 @@ export async function fetchChessComProfile(username: string): Promise<UserProfil
 
 export async function fetchLichessProfile(username: string): Promise<UserProfile | null> {
     try {
-        const res = await fetch(`https: 
+        const res = await fetch(`https://lichess.org/api/user/${username}`, {
             headers: { Accept: 'application/json' },
-            next: { revalidate: 86400 },  
+            next: { revalidate: 86400 },
         });
 
         if (!res.ok) {

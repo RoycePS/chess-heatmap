@@ -44,14 +44,14 @@ export function StatsCard({
                     <div className="my-6 h-px w-full bg-border/50" />
 
                     <div className="space-y-3">
-                        {}
+                        { }
                         <div className="flex items-center justify-between px-2">
                             <div className="flex items-center gap-2">
                                 <span className="w-2 h-2 rounded-full bg-[#7FA650]"></span>
                                 <span className="text-sm font-medium text-muted-foreground">Chess.com</span>
                                 {chesscomUsername && (
                                     <a
-                                        href={`https: 
+                                        href={`https://www.chess.com/member/${chesscomUsername}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="inline-flex items-center justify-center p-1 rounded-md text-muted-foreground hover:text-[#7FA650] hover:bg-[#7FA650]/10 transition-colors"
@@ -64,14 +64,14 @@ export function StatsCard({
                             <span className="text-lg font-bold text-foreground">{chessComCount.toLocaleString()}</span>
                         </div>
 
-                        {}
+                        { }
                         <div className="flex items-center justify-between px-2">
                             <div className="flex items-center gap-2">
                                 <span className="w-2 h-2 rounded-full bg-[#3D85C6]"></span>
                                 <span className="text-sm font-medium text-muted-foreground">Lichess</span>
                                 {lichessUsername && (
                                     <a
-                                        href={`https: 
+                                        href={`https://lichess.org/@/${lichessUsername}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="inline-flex items-center justify-center p-1 rounded-md text-muted-foreground hover:text-[#3D85C6] hover:bg-[#3D85C6]/10 transition-colors"

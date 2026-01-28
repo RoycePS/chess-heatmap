@@ -29,7 +29,7 @@ function triggerDownload(blob: Blob, filename: string) {
     const link = document.createElement('a');
 
     link.href = url;
-    link.download = filename;  
+    link.download = filename;
 
     link.style.visibility = 'hidden';
     link.style.position = 'absolute';
@@ -132,7 +132,7 @@ async function renderHeatmapToBlob(svgString: string, stats: HeaderStats): Promi
             ctx.drawImage(img, xOffset, padding + headerHeight);
 
             ctx.textAlign = "right";
-            ctx.fillStyle = "rgba(139, 148, 158, 0.5)";  
+            ctx.fillStyle = "rgba(139, 148, 158, 0.5)";
             ctx.font = "12px sans-serif";
             ctx.fillText("chessheat.royceps.com", canvas.width - padding, canvas.height - 15);
 
@@ -341,7 +341,7 @@ export function generateEmbedCode(
     else if (chesscomUsername) pathPart = `chesscom/${chesscomUsername}`;
     else if (lichessUsername) pathPart = `lichess/${lichessUsername}`;
 
-    const embedUrl = `https: 
+    const embedUrl = `https://chessheat-image.royceps.com/api/${pathPart}?year=${year}`;
 
     switch (type) {
         case 'iframe':
